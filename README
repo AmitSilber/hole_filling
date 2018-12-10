@@ -1,0 +1,21 @@
+Questions:
+
+1.  First, since a hole can only contain a single layer of pixels it stands that  m = O(n), moreover,
+    using the isoperimetric inequality we can bound m from below, such that m = Omega(sqrt(n)).
+    Now, for each pixel in the hole we preform a calculation over the boundary. Thus, each iteration
+    costs O(m)= O(n). Concluding that the algorithm runs in O(n^2).
+
+2.  For a solution in O(n) we can evaluate the intensity of each pixel in the hole with regard to some
+    constant neighborhood, meaning some constant amount of pixels that contributes to the intensity of
+    the hole pixels. Now, since in this case each iteration takes some constant amount of operations
+    it stands that the entire algorithm costs O(n).
+
+3.  I did not implement this part but the way to do so goes as follows:
+    First we'll notice that the way to calculate the intensity of every pixel is a dot product of the
+    weighted function and the intensity function divided by a dot product of the weighted function and a
+    vector of 1's.
+    This is similar to a convolution of two functions in 2D. Thus, using FFT we can transform the two
+    matrices using 2D fourier transform, multiply them (element wise) and then transform them back using the
+    inverse transform.
+    calculating the matrices takes O(n), preforming the transformations takes O(nlogn), and the multiplication
+    takes O(n). Concluding that this algorithm takes O(nlogn)
